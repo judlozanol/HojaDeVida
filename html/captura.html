@@ -4,34 +4,60 @@
         <title> Hoja de Vida </title>
         <meta charset="UTF-8">
         <script language="JavaScript" src="..\funciones.js"></script>
+        <link type="text/CSS" rel="stylesheet" href="..\estilos\estilo1.css">
     </head>
     <body>
-        <h1> Tu Hoja de Vida Online </h1>
-        <form method="get" action="" id="formHojaVida">
-            <h2> Datos Personales </h2>
-            <ul>
-                <li>Nombres:</li>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
-                <li>Apellidos:</li>
-                <input type="text" name="apellido" id="apellido" placeholder="Ingrese sus apellidos">
-                <li>Direccion de residencia:</li>
-                <input type="text" name="residencia" id="residencia"placeholder="Ingrese su dirección">
-                <li>Correo electrónico:</li>
-                <input type="email" name="correo" id="correo"placeholder="Ingrese su e-mail">
-                <li>Teléfono fijo:</li>
-                <input type="number" max="9999999999" name="telFijo" id="telFijo"placeholder="Ingrese su teléfono fijo">
-                <li>Celular:</li>
-                <input type="number" max="9999999999" name="telCelular" id="telCelular"placeholder="Ingrese su número celular">
-                
-                <div id="elementosAdicionales">
+        <center><h1>Mi Hoja de Vida Online</h1></center>
+        <table id="mainTable">
+            <form method="get" action="" id="formHojaVida">
+                <!-- En esta fila se encuentran los diferentes encabezados para la hoja de vida -->
+                <tr>
+                    <td> Datos Personales </td>
+                    <td> Crimenes </td>
+                    <td> Crimenes 2 </td>
+                </tr>
 
-                </div>
-                <div id="botonesAgregar">
-                </div>
-            </ul>
+                <!-- En esta fila se encuentra el contenido la hoja de vida -->
+                <tr>
+                    <!-- Celda para Datos Personales-->
+                    <td>
+                        <ul>
+                            <li>Nombres:</li>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+                            <li>Apellidos:</li>
+                            <input type="text" name="apellido" id="apellido" placeholder="Ingrese sus apellidos">
+                            <li>Direccion de residencia:</li>
+                            <input type="text" name="residencia" id="residencia"placeholder="Ingrese su dirección">
+                            <li>Correo electrónico:</li>
+                            <input type="email" name="correo" id="correo"placeholder="Ingrese su e-mail">
+                            <li>Teléfono fijo:</li>
+                            <input type="number" max="9999999999" name="telFijo" id="telFijo"placeholder="Ingrese su teléfono fijo">
+                            <li>Celular:</li>
+                            <input type="number" max="9999999999" name="telCelular" id="telCelular"placeholder="Ingrese su número celular">
+                            <div id="elementosAdicionales">
 
-            <input type="submit" value="Enviar Datos">
-        </form>
-        <button onclick="agregarNacimiento()" id="agregarNacimiento">Agregar Info. de Nacimiento</button>
+                            </div>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="submit" value="Enviar Datos">
+                    </td>
+                </tr>
+            </form>
+            <tr>
+                <!-- Botones relacionados a Datos Personales-->
+                <td>
+                    <div class="contenedorBotones">
+                        <button onclick="agregarNacimiento()" id="agregarNacimiento">Agregar Info. de Nacimiento</button>
+                        
+                    </div>
+                </td>
+            </tr>
+    </table>
+        
+            
+        
     </body>
 </html>

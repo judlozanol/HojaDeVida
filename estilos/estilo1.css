@@ -1,0 +1,13 @@
+.contenedorBotones{
+    display: flex;
+    flex-direction: column; /* Los botones se apilan verticalmente */
+}
+
+#mainTable {
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+#mainTable tr td{
+    padding: 10px;
+    border: 1px solid black;
+}

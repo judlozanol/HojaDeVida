@@ -3,6 +3,7 @@ function agregarNacimiento(){
     var lugar= document.createElement("input");
     var textFecha= document.createElement("li");
     var textLugar= document.createElement("li");
+    var form=document.getElementById("formHojaVida");
 
     textFecha.textContent="Fecha de Nacimiento:";
     textLugar.textContent="Lugar de Nacimiento:";
@@ -20,4 +21,5 @@ function agregarNacimiento(){
 
     document.getElementById("agregarNacimiento").style.display ="none";
 
+    /* Falta agregar los elementos del div al formulario  */
 }
