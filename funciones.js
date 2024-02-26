@@ -6,37 +6,43 @@ function leerGET(){
     var arrGET = cadGET.split("&"); 
     var asocGET = new Array(); 
     var variable = ""; 
-    var valor = ""; 
+    var valor = "";
     //llena el arreglo asociativo
     for(i=0;i<arrGET.length;i++){ 
         var aux = arrGET[i].split("="); 
         variable = aux[0];
         valor = aux[1];
-        valor =valor.replace("+"," ")
+        valor =valor.replace(/\+/g, " ");
+        valor =valor.replace(/%40/g, "@");
+
         asocGET[variable] = valor; 
     } 
     return asocGET; 
 }
 function escribir(){
     var paresVarValor = leerGET();
-    var keys= Object.keys(paresVarValor);
-    for(var key in keys){
-        var nuevoParrafo = document.createElement('p');
-        // Crear un nodo de texto para el párrafo
-        var texto = document.createTextNode(paresVarValor["correo"]);
-
-        // Agregar el nodo de texto al párrafo
-        nuevoParrafo.appendChild(texto);
-
-        // Obtener una referencia al contenedor div
-        var contenedor = document.getElementById('perfil');
-
-        // Agregar el párrafo como hijo del contenedor div
-        contenedor.appendChild(nuevoParrafo);
+    
+    for(var key in paresVarValor){
+        var contenedor = document.getElementById(key);
+        if(key=="habilidades"){
+            var arrHabilidades = paresVarValor[key].split("%0D%0A");
+            for(var iterador in arrHabilidades){
+                var nuevoLi= document.createElement("li");
+                //corregir caracteres especiales como tilde y ñ
+                nuevoLi.innerText=arrHabilidades[iterador];
+                contenedor.appendChild(nuevoLi);
+            }
+        } else{
+            var texto = document.createTextNode(paresVarValor[key]);
+            contenedor.appendChild(texto);
+        }
     }
     //revisar esta funcion 
 }
 
+function transformarLista(){
+
+}
 function validarCampos(){
     if(document.getElementById("nombre").value==""){
         alert("El nombre no puede ser vacio.");

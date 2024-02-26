@@ -6,3 +6,9 @@ body{
 #apellido{
     text-transform: uppercase;
 }
+#encabezado{
+    text-align: center;
+}
+.grande{
+    font-size: 30px;
+}
