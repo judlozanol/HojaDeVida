@@ -1,13 +1,19 @@
-.contenedorBotones{
-    display: flex;
-    flex-direction: column; /* Los botones se apilan verticalmente */
+body{
+    font-family: sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
 }
 
 #mainTable {
     border-collapse: collapse;
     border: 3px solid black;
+    text-align: left;
+    width: 100%;
 }
 #mainTable tr td{
     padding: 10px;
     border: 1px solid black;
+}
+#mainTable li{
+    text-align: left;
 }

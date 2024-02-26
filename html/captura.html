@@ -9,12 +9,12 @@
     <body>
         <center><h1>Mi Hoja de Vida Online</h1></center>
         <table id="mainTable">
-            <form method="get" action="" id="formHojaVida">
+            <form method="get" action="entrega.html" id="formHojaVida">
                 <!-- En esta fila se encuentran los diferentes encabezados para la hoja de vida -->
                 <tr>
                     <td> Datos Personales </td>
-                    <td> Crimenes </td>
-                    <td> Crimenes 2 </td>
+                    <td> Acerca de mi </td>
+                    <td> Apartado Profesional </td>
                 </tr>
 
                 <!-- En esta fila se encuentra el contenido la hoja de vida -->
@@ -30,34 +30,36 @@
                             <input type="text" name="residencia" id="residencia"placeholder="Ingrese su dirección">
                             <li>Correo electrónico:</li>
                             <input type="email" name="correo" id="correo"placeholder="Ingrese su e-mail">
-                            <li>Teléfono fijo:</li>
-                            <input type="number" max="9999999999" name="telFijo" id="telFijo"placeholder="Ingrese su teléfono fijo">
                             <li>Celular:</li>
                             <input type="number" max="9999999999" name="telCelular" id="telCelular"placeholder="Ingrese su número celular">
-                            <div id="elementosAdicionales">
-
-                            </div>
+                            
+                        </ul>
+                    </td>
+                    <!-- Celda para Acerca de mi-->
+                    <td>
+                        <ul>
+                            <li>Perfil:</li>
+                            <textarea id="perfil" name="perfil" rows="4" cols="50" placeholder="Ingresa características importantes que te hacen un buen candidato para obtener el puesto."></textarea>
+                            <li>Habilidades:</li>
+                            <textarea id="habilidades" name="habilidades" rows="4" cols="50" placeholder="Ingresa tus habilidades, una por línea.&#10;Ejemplo:&#10;Habilidad 1&#10;Habilidad 2&#10;Habilidad 3"></textarea>
+                        </ul>
+                    </td>
+                    <!-- Celda para Apartado Profesional-->
+                    <td>
+                        <ul>
+                            <li>Educación:</li>
+                            <textarea id="educacion" name="educacion" rows="4" cols="50" placeholder="hola"></textarea>
+                            <li>Experiencia Profesional:</li>
+                            <textarea id="experiencia" name="experiencia" rows="4" cols="50"placeholder="hola" ></textarea>
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <input type="submit" value="Enviar Datos">
+                        <input type="submit" value="Enviar Datos" onclick="validarCampos()">
                     </td>
                 </tr>
             </form>
-            <tr>
-                <!-- Botones relacionados a Datos Personales-->
-                <td>
-                    <div class="contenedorBotones">
-                        <button onclick="agregarNacimiento()" id="agregarNacimiento">Agregar Info. de Nacimiento</button>
-                        
-                    </div>
-                </td>
-            </tr>
-    </table>
-        
-            
-        
+        </table>
     </body>
 </html>
