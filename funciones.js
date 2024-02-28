@@ -13,9 +13,9 @@ function leerGET(){
         variable = aux[0];
         valor = aux[1];
         valor =valor.replace(/\+/g, " ");
-        valor =valor.replace(/%40/g, "@");
+        valor =valor.replace(/%0D%0A/g, "specialJumpCharacter");
 
-        asocGET[variable] = valor; 
+        asocGET[variable] = decodeURIComponent(valor); 
     } 
     return asocGET; 
 }
@@ -25,7 +25,7 @@ function escribir(){
     for(var key in paresVarValor){
         var contenedor = document.getElementById(key);
         if(key=="habilidades"){
-            var arrHabilidades = paresVarValor[key].split("%0D%0A");
+            var arrHabilidades = paresVarValor[key].split("specialJumpCharacter");
             for(var iterador in arrHabilidades){
                 var nuevoLi= document.createElement("li");
                 //corregir caracteres especiales como tilde y ñ
