@@ -21,28 +21,69 @@ function leerGET(){
 }
 function escribir(){
     var paresVarValor = leerGET();
-    
-    for(var key in paresVarValor){
+    for (var key in paresVarValor) {
+        //crea una referencia al contenedor al que esta asociado
         var contenedor = document.getElementById(key);
-        if(key=="habilidades"){
+        if (key=="habilidades") {
             var arrHabilidades = paresVarValor[key].split("specialJumpCharacter");
-            for(var iterador in arrHabilidades){
+            for (var iterador in arrHabilidades) {
                 var nuevoLi= document.createElement("li");
-                //corregir caracteres especiales como tilde y ñ
                 nuevoLi.innerText=arrHabilidades[iterador];
                 contenedor.appendChild(nuevoLi);
             }
-        } else{
+        } else if (key=="educacion") {
+            if (paresVarValor[key]=="") {
+                //si el elemento viene vacio, no lo mostrara
+                document.getElementById("educacionEnunciado").style.display = "none";
+            } else {
+                //si no viene vacio lo separara en varias listas ordenadas, y agrega un salto de linea entre elementos
+                var arrEstudios = paresVarValor[key].split("specialJumpCharacter");
+                for (var iterador in arrEstudios) {
+                    let saltoDeLinea = document.createElement("br");
+                    var nuevaLi = document.createElement("li");
+                    var nuevaUl= document.createElement("ul");
+                    var arregloEstudio= arrEstudios[iterador].split("/");
+                    for(var iterador2 in arregloEstudio){
+                        var nuevaLi2= document.createElement("li");
+                        nuevaLi2.innerText=arregloEstudio[iterador2];
+                        nuevaUl.appendChild(nuevaLi2);
+                    }
+                    nuevaLi.appendChild(nuevaUl);
+                    contenedor.appendChild(nuevaLi);
+                    contenedor.appendChild(saltoDeLinea);
+                }
+            }
+        } else if (key=="experiencia") {
+            if (paresVarValor[key]=="") {
+                //si el elemento viene vacio, no lo mostrara
+                document.getElementById("experienciaEnunciado").style.display = "none";
+            } else {
+                //si no viene vacio lo separara en varias listas ordenadas, y agrega un salto de linea entre elementos
+                var arregloExperiencias = paresVarValor[key].split("specialJumpCharacter");
+                for (var iterador in arregloExperiencias) {
+                    let saltoDeLinea = document.createElement("br");
+                    var nuevaLi = document.createElement("li");
+                    var nuevaUl= document.createElement("ul");
+                    var arregloExperiencia= arregloExperiencias[iterador].split("/");
+                    for(var iterador2 in arregloExperiencia){
+                        var nuevaLi2= document.createElement("li");
+                        nuevaLi2.innerText=arregloExperiencia[iterador2];
+                        nuevaUl.appendChild(nuevaLi2);
+                    }
+                    nuevaLi.appendChild(nuevaUl);
+                    contenedor.appendChild(nuevaLi);
+                    contenedor.appendChild(saltoDeLinea);
+                }
+            }
+        } else {
+            //forma basica de escritura de los datos
             var texto = document.createTextNode(paresVarValor[key]);
             contenedor.appendChild(texto);
         }
     }
-    //revisar esta funcion 
+    
 }
 
-function transformarLista(){
-
-}
 function validarCampos(){
     if(document.getElementById("nombre").value==""){
         alert("El nombre no puede ser vacio.");
